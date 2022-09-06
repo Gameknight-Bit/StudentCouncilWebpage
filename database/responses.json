@@ -1,0 +1,18 @@
+{
+    "bugreports": {
+        "1e6f44610e984862aa697d3280543322": {
+            "content": "Hello! The about page has some spelling mistakes",
+            "time": "1662254917.608588",
+            "UUID": "1e6f44610e984862aa697d3280543322"
+        }
+    },
+    "webfeedback": {},
+    "stucofeedback": {},
+    "EMAILS-SENT": {
+        "srhigh": {},
+        "jrhigh": {}
+    },
+    "RECENT-IPS": {
+        "10.0.0.223": 1662254917.608588
+    }
+}

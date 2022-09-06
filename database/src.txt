@@ -1,0 +1,13 @@
+<div id="centered">
+    <img id="centered" src="https://stickerly.pstatic.net/sticker_pack/Trc5usoYT0jamIN0eEA/W0D9QO/32/078490d4-0976-40a4-99ea-aa5b54e88eb0.png" alt="omor", width=240, height=220>
+</div>
+<h2 id="centered">The Homecoming Dance is coming up soon!</h2>
+<h3><b>The dance will take place on Sept. 24 from <i>7pm-10pm</i> in the WSHS cafeteria.</b></h3>
+<p>Make sure to do a few things to get ready for the dance:</p>
+<ul>
+    <li>Buy your tickets for <b>$10</b> during <u>B and C lunches.</u></li>
+    <li>Only 9th-12th graders are able to attend the dance (if an student not at West Shamokin and under 21 would like to attend with their date, contact Mrs. Breznican)</li>
+</ul>
+<p>Voting will be posted <i>soon</i> on the website so look out for updates!</p>
+<p>If you would like to get in contact with <b>Student Council</b>: Please go to <a href="/contact">this</a> page</p>
+<p><i>Thanks for reading!</i></p>

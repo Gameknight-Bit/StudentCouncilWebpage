@@ -1,0 +1,205 @@
+/*  CSS For Homepage of STUCO Webpage  */
+
+
+/* Custom */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+.section-divider {
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #2f8cf7, rgba(192, 240, 255, 0.5));
+    border-radius: 10px;
+    margin: 0 0 10px 0;
+}
+
+/* Navigation Bar */
+.navbar {
+    margin-bottom: 0;
+    font-size: 1.2em;
+    transition: 0.5s linear;
+}
+
+.navbar-brand{
+    justify-content: center;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.navbar-brand img{
+    width: 40px;
+    height: 40px;
+}
+
+.navbar-nav a{
+  border-radius: 10px;
+  transition: 0.5s linear;
+}
+
+/***** HERO *****/
+#hero {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+    background: #ffffff;
+    background-image: url("https://3.files.edl.io/8b01/21/10/06/160344-a5ced8d0-3b57-4893-8241-6e0b423b1593.JPG"); /* fallback */
+    background: linear-gradient(45deg, rgba(143, 143, 143,0.8), rgba(156, 156, 156, 0.3)), url("https://3.files.edl.io/8b01/21/10/06/160344-a5ced8d0-3b57-4893-8241-6e0b423b1593.JPG") no-repeat center top fixed;
+    background-size: cover;
+    transition: 1s linear;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#hero .hero-text {
+    position: absolute;
+    left: 0;
+    top: 130px;
+    right: 0;
+    height: calc(50% - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#hero h1{
+    font-size: 4em;
+    font-weight: 700;
+    color: rgb(43, 43, 43);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#hero p{
+    font-size: 2em;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+}
+
+#hero .btn-get-started {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 50px;
+    transition: 0.5s;
+    margin: 10px;
+    border: 3px solid #fff;
+    color: #fff;
+  }
+  
+#hero .btn-get-started:hover {
+  font-style: bold;
+  color: #2f8cf7;
+  background: #fff;
+}
+
+/* Latest Event */
+#latestEvent {
+  width: 100%;
+  height: auto;
+  background-color: #e7e7e7;
+  padding: 30px 10px 50px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+#latestEvent .lastestEvent-text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+#latestEvent .section-divider {
+  display: flex;
+  justify-content: center;
+  width: 60px;
+  height: 3px;
+  background: #2e2e2e;
+  border-radius: 10px;
+  margin: 0 0 20px 0;
+}
+
+#latestEvent h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 3;
+  margin-bottom: 8px;
+}
+
+#latestEvent .card{
+  transition: 1s linear;
+  width: 60%;
+  border-width: 5px 5px 5px 5px;
+  border-color: #2f8cf7;
+  border-radius: 10px;
+}
+
+#latestEvent .card-body{
+  padding: 15px 30px 20px 30px;
+  text-align: left;
+}
+
+#latestEvent img{
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 0px;
+}
+
+
+#latestEvent .card-text{
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+#latestEvent #date{
+  margin-bottom: 10px;
+  color: #888888;
+}
+
+/* Footer */
+#footerCredit .container{
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+#footerCredit .row{
+  display: flex;
+  justify-content: center;
+}
+
+#footerCredit .credits img{
+  width: 40px;
+  height: 40px;
+  opacity: 0.5;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+
+#footerCredit .col-lg-1{
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#footerCredit .credits img:hover{
+  opacity: 0.6;
+}

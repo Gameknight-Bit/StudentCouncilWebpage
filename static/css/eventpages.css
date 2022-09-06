@@ -1,0 +1,38 @@
+
+.section-divider {
+    background: rgb(77, 77, 77);
+}
+
+/*** Source Section ****/
+#source{
+    padding: 30px 30px 30px 30px;
+    background-color: rgb(243, 243, 243);
+}
+
+#source .source-text{
+    padding: 30px 30px 30px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#source .source-html{
+    text-align: left;
+    border-radius: 7px;
+    border-width: 2px 2px 2px 2px;
+    border-color: rgb(44, 44, 44);
+    border-style: solid;
+    width: 90%;
+    height: auto;
+    padding: 10px 10px 10px 10px;
+    font-family: 'Trebuchet MS', sans-serif, monospace;
+}
+
+/***** Some Crazy CSS stuff for src to use :) *********/
+.source-html #centered{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}

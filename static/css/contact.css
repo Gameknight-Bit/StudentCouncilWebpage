@@ -1,0 +1,76 @@
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    position: absolute;
+    /*top:0;*/
+    width:90%;
+    z-index:100;
+    margin-bottom: 0px;
+    margin-top: 4px;
+    opacity: 80%;
+    margin-left: 20px;
+    margin-right: 20px;
+    transition: 0s;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+  
+  /* When moving the mouse over the close button */
+.closebtn:hover {
+color: black;
+}
+
+#hero {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background: #ffffff;
+    background-image: url("https://3.files.edl.io/09bb/21/10/06/160447-8c87b633-d5d2-401b-89ee-cf3a0110cc28.JPG"); /* fallback */
+    background: linear-gradient(45deg, rgba(143, 143, 143,0.8), rgba(156, 156, 156, 0.3)), url("https://3.files.edl.io/09bb/21/10/06/160447-8c87b633-d5d2-401b-89ee-cf3a0110cc28.JPG") no-repeat center top fixed;
+    background-size: cover;
+    transition: 1s linear;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.section-divider {
+    background: rgb(34, 34, 34);
+    height: 4px;
+}
+
+#hero .section-divider {
+    background: rgb(255, 255, 255);
+    height: 4px;
+}
+
+#form #form-text{
+    padding: 20px 40px 20px 40px;
+    background-color: #fafafa;
+}
+
+#form #titleText{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+#form #form-title-text{
+    font-size: 2.6em;
+}
+
+.btn-primary {
+    transition: 0.1s linear
+}

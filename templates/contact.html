@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>WSHS STUCO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR (STATIC PART) -->
+    <nav class = "navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class = "navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="{{ url_for('static', filename='imgs/Logo.png') }}"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/events">Events</a></li>
+                    <li class="active"><a href="#">Contact</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="https://wshs.asd.k12.pa.us/"><span class="glyphicon glyphicon-log-in"></span> <u>West Shamokin</u></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <p id="AlertMessage">This is an alert box.</p>
+    </div>
+
+    <!-- MAIN CONTENT -->
+
+    <section id="hero">
+        <div class="hero-text">
+            <h1>Contact Student Council</h1>
+            <span class="section-divider"></span>
+            <a href="#form" class="btn-get-started scrollto">Contact Us</a>
+        </div>
+    </section>
+
+    <section id="form">
+        <div id="form-text">
+            <div id="titleText">
+                <h2 id="form-title-text"><b>Feedback</b></h2>
+                <span class="section-divider"></span>
+            </div>
+            <form name="FeedbackForm" method="post" action="{{url_for('contact')}}" onsubmit="return validateForm()">
+                <div id="form-type" class="form-group">
+                    <label for="FormControlSelect1">Contact Method:</label>
+                    <select class="form-control" id="FormControlSelect1" name="contactMethod" onchange="updateForm()">
+                    <option>-- Choose Contact Method --</option>
+                    <option value="stucofeedback">STUCO Feedback</option>
+                    <option value="srhighstuco">Sr High Stuco Contact</option>
+                    <option value="jrhighstuco">Jr High Stuco Contact</option>
+                    <option value="webfeedback">Webpage Feedback</option>
+                    <option value="bugreports">Website Bug Report</option>
+                    </select>
+                    <small id="emailHelpSubtext" class="form-text text-muted">Choose the contact method that fits your use case.</small>
+                </div>
+
+                <hr class="breakPage">
+
+                <div id="email-enter" class="form-group">
+                    <label for="inputEmail">Email Address:</label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" name="email" placeholder="name@example.com" value="{{ request.form['email'] }}">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label for="inputName">Name:</label>
+                                <input class="form-control" id="inputName" aria-describedby="emailHelp" name="nickname" placeholder="John Doe" value="{{ request.form['nickname'] }}">
+                                <small id="helpName" class="form-text text-muted">Nickname to know you by <i>(optional)</i></small>
+                            </div>
+                            <div class="col-lg-6">
+                                <label for="inputSubject">Subject:</label>
+                                <input class="form-control" id="inputSubject" aria-describedby="emailHelp" name="subject" placeholder="Topic of Email" value="{{ request.form['subject'] }}">
+                                <small id="emailHelp" class="form-text text-muted">Subject of your email <i>(optional)</i></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="email-text" class="form-group"> <!-- Most Important -->
+                    <label for="formControlTextarea">Email Content:</label>
+                    <textarea id="email-textarea" class="form-control" id="formControlTextarea" name="emailContent" rows="7" placeholder="Type your email here!">{{ request.form['emailContent'] }}</textarea>
+                </div>
+
+                <hr class="breakPage">
+
+                <div id="rating" class="form-group">
+                    <label for="ratingControl">How was your experience with the website today?</label>
+                    <select class="form-control" name="rating" id="ratingControl">
+                    <option>-- ⭐Choose Rating⭐ --</option>
+                    <option>5</option>
+                    <option>4</option>
+                    <option>3</option>
+                    <option>2</option>
+                    <option>1</option>
+                    </select>
+                    <small id="ratingHelp" class="form-text text-muted"><i>(optional)</i></small>
+                </div>
+
+                <hr class="breakPage">
+
+                <div id="anonymous-form" class="form-check"> <!-- Some nice little checkboxes for anonymous posting/rating systems -->
+                    <input type="checkbox" class="form-check-input" name="anonymousCheck" id="check1">
+                    <label class="form-check-label" for="check1">Stay Anonymous</label>
+                    <small id="ratingHelp" class="form-text text-muted"><i>(Your IP will still be stored for <u>2 min</u> to prevent spamming)</i></small>
+                </div>
+                <button id="SubmitEmailButton" type="submit" class="btn btn-primary" name="submitButton"><b>Send Feedback</b></button>
+
+                <script src="{{ url_for('static', filename='js/contact.js') }}">
+                </script>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="footerCredit">
+        <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-lg-start text-center">
+                <div class="copyright">
+                  &copy;Copyright <strong>West Shamokin STUCO</strong>. All Rights Reserved
+                </div>
+                <div class="credits">
+                  <!--Github Repository-->
+                  <div class="row" justify="center">
+                    <div class="col-lg-1"><a href="https://github.com/Gameknight-Bit/StudentCouncilWebpage"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"></a></div>
+                    <div class="col-lg-1"><a href="https://twitter.com/"><img src="https://cdn-icons-png.flaticon.com/512/81/81609.png"></a></div>
+                    <div class="col-lg-1"><a href="https://www.instagram.com/westshamokin/?hl=en"><img src="https://cdn-icons-png.flaticon.com/512/87/87390.png"></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </footer>
+
+    <script>
+        // Get all elements with class="closebtn"
+        var close = document.getElementsByClassName("closebtn");
+        var i;
+
+        $(window).scroll(function(e){ 
+            var $el = $('.alert'); 
+            var isPositionFixed = ($el.css('position') == 'fixed');
+            if ($(this).scrollTop() > 70 && !isPositionFixed){ 
+                $el.css({'position': 'fixed', 'top': '0px', 'margin-top': '0px', 'transition': '0s linear'}); 
+                setTimeout(function(){ $el.css({'transition': '0.1s linear'});  }, 100);
+            }
+            if ($(this).scrollTop() < 70 && isPositionFixed){
+                $el.css({'position': 'absolute', 'top': '70.4px', 'margin-top': '4px', 'transition': '0s'}); 
+            } 
+        });
+
+        var err = "{{ invalidText }}"
+        var suc = "{{ validText }}"
+
+        if (err != "") {
+            close[0].parentElement.style.backgroundColor = "#f44336";
+            document.getElementById("AlertMessage").innerHTML = err
+        } else if (suc != ""){
+            close[0].parentElement.style.backgroundColor = "#76ff6a";
+            document.getElementById("AlertMessage").innerHTML = suc
+        } else {
+            close[0].parentElement.style.opacity = "0";
+        }
+        
+        // Loop through all close buttons
+        for (i = 0; i < close.length; i++) {
+          // When someone clicks on a close button
+          close[i].onclick = function(){
+        
+            // Get the parent of <span class="closebtn"> (<div class="alert">)
+            var div = this.parentElement;
+        
+            // Set the opacity of div to 0 (transparent)
+            div.style.opacity = "0";
+        
+            // Hide the div after 600ms (the same amount of milliseconds it takes to fade out)
+            setTimeout(function(){ div.style.display = "none"; }, 600);
+          }
+        }
+    </script>
+
+    <script> //Smooth Scrolling :)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+    
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+    </script>
+
+    <!-- JS Imports for Webpage :) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
